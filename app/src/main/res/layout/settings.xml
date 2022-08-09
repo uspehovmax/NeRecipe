@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierTop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/top_spacing"
+        app:barrierDirection="top">
+
+    </androidx.constraintlayout.widget.Barrier>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp">
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/ok_margin" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:contentDescription="@string/recipe_save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_ok_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabUndo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_marginEnd="148dp"
+        android:contentDescription="@string/cancel_filters"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_undo_24" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        app:barrierDirection="left" />
+
+    <TextView
+        android:id="@+id/tvHeaderSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:textColor="#F44336"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:text="@string/settings"
+        app:layout_constraintBottom_toTopOf="@id/barrierTop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:id="@id/darkTheme"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:contentDescription="@string/european"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrierTop"
+        app:srcCompat="@drawable/dark" />
+
+    <ImageView
+        android:id="@id/enRu"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="60dp"
+        android:contentDescription="@string/asian"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/darkTheme"
+        app:srcCompat="@drawable/en_ru" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/themeSwitch"
+        app:layout_constraintBottom_toBottomOf="@+id/darkTheme"
+        tools:layout_editor_absoluteX="144dp" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/languageSwitch"
+        app:layout_constraintBottom_toBottomOf="@+id/enRu"
+        tools:layout_editor_absoluteX="144dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

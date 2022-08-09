@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/common_spacing">
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="@dimen/recipe_avatar_size"
+        android:layout_height="@dimen/recipe_avatar_size"
+        android:layout_marginBottom="@dimen/medium_spacing"
+        android:contentDescription="@string/avatar_description"
+        android:src="@drawable/ic_dish"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/ic_dish" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginEnd="@dimen/common_spacing"
+        android:ellipsize="end"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="#F44336"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/recipe_description"
+        app:layout_constraintEnd_toStartOf="@id/options"
+        app:layout_constraintStart_toEndOf="@+id/avatar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="@string/recipe_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/recipe_description"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/recipe_description_size"
+        android:layout_marginTop="@dimen/common_spacing"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/title"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="@string/recipe_description" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/options"
+        style="@style/Widget.AppTheme.OptionsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/description_recipe_menu"
+        android:paddingStart="@dimen/icon_button_padding_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlSymmetry" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/favorite"
+        style="@style/Widget.AppTheme.Favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkable="true"
+        android:paddingStart="@dimen/icon_button_padding_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/options"
+        tools:ignore="RtlSymmetry" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/share"
+        style="@style/Widget.AppTheme.Share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkable="true"
+        android:paddingStart="@dimen/icon_button_padding_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/favorite"
+        tools:ignore="RtlSymmetry" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/headerBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="divider, avatar, title, authorName,favorite"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="144dp" />
+
+    <TextView
+        android:id="@+id/authorName"
+        android:layout_width="@dimen/recipe_avatar_size"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_spacing"
+        android:text="Author Name"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/avatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/headerBarrier" />
+
+    <TextView
+        android:id="@+id/region"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Region"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@id/authorName"
+        app:layout_constraintEnd_toEndOf="@+id/recipe_description"
+        app:layout_constraintStart_toStartOf="@+id/recipe_description" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/small_spacing"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintTop_toBottomOf="@id/headerBarrier"
+
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

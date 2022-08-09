@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/feedFragment">
+
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="ru.netology.nerecipe.ui.FeedFragment"
+        tools:layout="@layout/feed_fragment" >
+        <argument
+            android:name="ShowAppBar"
+            android:defaultValue="true" />
+        <action
+            android:id="@+id/action_feedFragment_to_fullRecipeFragment"
+            app:destination="@id/fullRecipeFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_newRecipeFragment"
+            app:destination="@id/createRecipeFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_favoriteRecipeFragment"
+            app:destination="@id/favoriteRecipeFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_categoryFilterFragment"
+            app:destination="@id/regionFilterFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fullRecipeFragment"
+        android:name="ru.netology.nerecipe.ui.FullRecipeFragment"
+        tools:layout="@layout/full_recipe_view">
+        <argument
+            android:name="recipeCardId"
+            app:argType="long"
+            app:nullable="false" />
+        <action
+            android:id="@+id/action_fullRecipeFragment_to_createRecipeFragment"
+            app:destination="@id/createRecipeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createRecipeFragment"
+        android:name="ru.netology.nerecipe.ui.CreateRecipeFragment"
+        tools:layout="@layout/new_recipe_fragment">
+        <argument
+            android:name="currentRecipe"
+            app:argType="ru.netology.nerecipe.data.Recipe"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_createRecipeFragment_to_regionChooseFragment"
+            app:destination="@id/regionChooseFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favoriteRecipeFragment"
+        android:name="ru.netology.nerecipe.ui.FavoriteRecipeFragment"
+        android:label="FavoriteRecipeFragment"
+        tools:layout="@layout/favorite_fragment">
+        <argument
+            android:name="ShowAppBar"
+            android:defaultValue="true" />
+        <action
+            android:id="@+id/action_favoriteRecipeFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
+
+
+        <action
+            android:id="@+id/action_favoriteRecipeFragment_to_fullRecipeFragment"
+            app:destination="@id/fullRecipeFragment" />
+        <action
+            android:id="@+id/action_favoriteRecipeFragment_to_createRecipeFragment"
+            app:destination="@id/createRecipeFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/regionFilterFragment"
+        android:name="ru.netology.nerecipe.ui.RegionFilterFragment"
+        android:label="RegionFilterFragment"
+        tools:layout="@layout/region_filter">
+        <argument
+            android:name="ShowAppBar"
+            android:defaultValue="true" />
+        <action
+            android:id="@+id/action_regionFilterFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/regionChooseFragment"
+        android:name="ru.netology.nerecipe.ui.RegionChooseFragment"
+        android:label="RegionChooseFragment"
+        tools:layout="@layout/region_choose">
+        <argument
+            android:name="currentRecipe"
+            app:argType="ru.netology.nerecipe.data.Recipe"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_regionChooseFragment_to_createRecipeFragment"
+            app:destination="@id/createRecipeFragment" />
+    </fragment>
+
+
+</navigation>

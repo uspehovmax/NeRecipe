@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="common_spacing">16dp</dimen>
+    <dimen name="common_spacing_48">48dp</dimen>
+    <dimen name="top_spacing">48dp</dimen>
+    <dimen name="recipe_avatar_size">128dp</dimen>
+    <dimen name="recipe_description_size">64dp</dimen>
+    <dimen name="step_width_size">250dp</dimen>
+    <dimen name="medium_spacing">8dp</dimen>
+    <dimen name="icon_button_min_size">32dp</dimen>
+    <dimen name="icon_button_padding_size">12dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="ok_margin">20dp</dimen>
+    <dimen name="small_spacing">4dp</dimen>
+</resources>

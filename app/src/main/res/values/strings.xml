@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">The Best Recipes 4U</string>
+    <string name="avatar_description">Avatar description</string>
+
+    <string name="description_recipe_menu">Recipe menu</string>
+    <string name="add_recipe">Add recipe</string>
+    <string name="remove">Remove</string>
+    <string name="menu_edit">Edit</string>
+    <string name="recipe_title">Title recipe</string>
+    <string name="recipe_description">Recipe_description. Recipe_description. Recipe_description. Recipe_description</string>
+    <string name="recipe_save">Recipe save</string>
+    <string name="all_recipes">All recipes</string>
+    <string name="filter">Filter</string>
+    <string name="favorites">Favorites</string>
+
+    <string name="region">Region</string>
+    <string name="european">European</string>
+    <string name="asian">Asian</string>
+    <string name="panasian">Panasian</string>
+    <string name="eastern">Eastern</string>
+    <string name="american">American</string>
+    <string name="russian">Russian</string>
+    <string name="mediterranean">Mediterranean</string>
+
+    <string name="name_hint">Title</string>
+    <string name="author_name_hint">Author name</string>
+    <string name="content_hint">Content list of steps</string>
+    <string name="text_empty_list">No dishes in favorites. You should add to favorites some dishes</string>
+    <string name="cancel_filters">Cancel filters</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="step_picture">Picture of step</string>
+    <string name="step_description">Description of step</string>
+    <string name="textViewMessage">Click to add picture/text all elements</string>
+    <string name="addStepButton" >Add step description (and picture)</string>
+    <string name="chooseMessage" >Choose region</string>
+    <string name="settings" >Settings</string>
+    <string name="themeSwitch" >Theme Switch</string>
+    <string name="languageSwitch" >Language Switch</string>
+    <string name="addEditTextButton" >Add required text</string>
+    <string name="typeTextButton" >Type required text</string>
+
+</resources>
