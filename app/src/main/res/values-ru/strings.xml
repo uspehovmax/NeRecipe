@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">The Best Recipes 4U</string>
+    <string name="avatar_description">Описание</string>
+
+    <string name="description_recipe_menu">Меню</string>
+    <string name="add_recipe">Добавить рецепт</string>
+    <string name="remove">Удалить</string>
+    <string name="menu_edit">Изменить</string>
+    <string name="recipe_title">Название рецепта</string>
+    <string name="recipe_description">Краткое описание рецепта</string>
+    <string name="recipe_save">Сохранить рецепт</string>
+    <string name="all_recipes">Все рецепты</string>
+    <string name="filter">Фильтр</string>
+    <string name="favorites">Избранное</string>
+
+    <string name="region">Регион(категория/кухня)</string>
+    <string name="european">Европейская кухня</string>
+    <string name="asian">Азиатская кухня</string>
+    <string name="panasian">Паназиатская кухня</string>
+    <string name="eastern">Восточная кухня</string>
+    <string name="american">Американская кухня</string>
+    <string name="russian">Русская кухня</string>
+    <string name="mediterranean">Средиземноморская кухня</string>
+
+    <string name="name_hint">Название</string>
+    <string name="author_name_hint">Имя автора</string>
+    <string name="content_hint">Список рецептов</string>
+    <string name="text_empty_list">В избранном нет рецептов. Нужно добавить в избранное рецепты</string>
+    <string name="cancel_filters">Отменить фильтры</string>
+    <string name="ingredients">Ингридиенты</string>
+    <string name="step_picture">Picture of step</string>
+    <string name="step_description">Описание шагов</string>
+    <string name="textViewMessage">TextViewRegion</string>
+    <string name="addStepButton" >Добавить описание шагов</string>
+    <string name="filterMessage" >Фильтр региона/кухни</string>
+    <string name="chooseMessage" >Выбрать регион/кухню</string>
+    <string name="settings" >Настройки</string>
+    <string name="themeSwitch" >Изменить тему</string>
+    <string name="languageSwitch" >Изменить язык</string>
+    <string name="addEditTextButton" >Add required text</string>
+    <string name="typeTextButton" >Type required text</string>
+    <string name="write_description_here">Краткое описание рецепта </string>
+    <string name="chooser_share_recipe">Поделиться рецептом </string>
+    <string name="addStepDescription" >Добавить шаг описанием</string>
+    <string name="write_title_here" >Название рецепта</string>
+
+    <string name="authorities">com.example.fileprovider</string>
+</resources>

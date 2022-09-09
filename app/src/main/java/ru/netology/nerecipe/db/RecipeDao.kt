@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import ru.netology.nerecipe.data.InMemoryRecipeRepositoryImpl
 import ru.netology.nerecipe.data.RecipeRepository
 import ru.netology.nerecipe.data.Region
 
@@ -16,8 +17,9 @@ interface RecipeDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(recipe: RecipeEntity)
 
-    // ?????
-    @Query("UPDATE recipes SET title = :title, description = :description, region = :region WHERE id = :id")
+    @Query("UPDATE recipes " +
+            "SET title = :title, description = :description, region = :region " +
+            "WHERE id = :id")
     fun updateById(
         id: Long, title: String,
         description: String, region: Region
@@ -33,12 +35,29 @@ interface RecipeDao {
 
     @Query(
         """
-        UPDATE recipes SET
-        like = CASE WHEN addedToFavourites THEN 0 ELSE 1 END
+        UPDATE recipes 
+        SET 
+            likedByMe = (CASE
+                        WHEN likedByMe THEN 0 ELSE 1
+                        END),
+            likes=      ( CASE                 
+                        WHEN likedByMe THEN likes-1 ELSE likes+1
+                        END)
         WHERE id = :id
         """
     )
     fun likedByMe(id: Long)
+
+    @Query(
+        """
+        UPDATE recipes 
+        SET shareCount = CASE
+            WHEN shareCount THEN shareCount+1 ELSE shareCount+1 
+        END
+        WHERE id = :id
+        """
+    )
+    fun share(id: Long)
 
     @Query("SELECT * FROM recipes WHERE title LIKE '%' || :text || '%'")
     fun search(text: String): LiveData<List<RecipeEntity>>

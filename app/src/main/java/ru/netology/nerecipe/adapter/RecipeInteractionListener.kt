@@ -11,5 +11,4 @@ interface RecipeInteractionListener {
     fun onShareButtonClicked(recipe: Recipe)
     fun onRecipeItemClicked(recipe: Recipe)
 
-
 }

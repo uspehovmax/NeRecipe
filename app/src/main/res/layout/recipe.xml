@@ -7,32 +7,32 @@
     android:padding="@dimen/common_spacing">
 
     <ImageView
-        android:id="@+id/avatar"
+        android:id="@+id/dish_picture"
         android:layout_width="@dimen/recipe_avatar_size"
         android:layout_height="@dimen/recipe_avatar_size"
-        android:layout_marginBottom="@dimen/medium_spacing"
         android:contentDescription="@string/avatar_description"
         android:src="@drawable/ic_dish"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck"
         tools:srcCompat="@drawable/ic_dish" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="@dimen/small_spacing"
         android:layout_marginEnd="@dimen/common_spacing"
         android:ellipsize="end"
         android:fontFamily="casual"
         android:gravity="center"
-        android:singleLine="true"
+        android:singleLine="false"
         android:textColor="#F44336"
-        android:textSize="24sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/recipe_description"
         app:layout_constraintEnd_toStartOf="@id/options"
-        app:layout_constraintStart_toEndOf="@+id/avatar"
+        app:layout_constraintStart_toEndOf="@+id/dish_picture"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="@string/recipe_title" />
@@ -40,10 +40,10 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/recipe_description"
         android:layout_width="0dp"
-        android:layout_height="@dimen/recipe_description_size"
-        android:layout_marginTop="@dimen/common_spacing"
+        android:layout_height="@dimen/common_spacing_48"
+        android:layout_marginTop="@dimen/small_spacing"
         android:ellipsize="end"
-        android:singleLine="true"
+        android:singleLine="false"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@id/title"
         app:layout_constraintHorizontal_bias="1.0"
@@ -58,6 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/description_recipe_menu"
+        android:minHeight="48dp"
         android:paddingStart="@dimen/icon_button_padding_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -72,25 +73,26 @@
         android:paddingStart="@dimen/icon_button_padding_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/options"
-        tools:ignore="RtlSymmetry" />
+        tools:ignore="RtlSymmetry,TouchTargetSizeCheck"
+        tools:text="111" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/share"
         style="@style/Widget.AppTheme.Share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:checkable="true"
         android:paddingStart="@dimen/icon_button_padding_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/favorite"
-        tools:ignore="RtlSymmetry" />
+        tools:ignore="RtlSymmetry,TouchTargetSizeCheck"
+        tools:text="111" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/headerBarrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="divider, avatar, title, authorName,favorite"
+        app:constraint_referenced_ids="divider, title, authorName,favorite"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="144dp" />
 
@@ -99,17 +101,17 @@
         android:layout_width="@dimen/recipe_avatar_size"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/small_spacing"
-        android:text="Author Name"
+        android:text="@string/author_name_hint"
         android:gravity="center"
-        app:layout_constraintEnd_toEndOf="@+id/avatar"
+        app:layout_constraintEnd_toEndOf="@+id/dish_picture"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/headerBarrier" />
+        app:layout_constraintBottom_toTopOf="@id/divider" />
 
     <TextView
         android:id="@+id/region"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Region"
+        android:text="@string/region"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@id/authorName"
         app:layout_constraintEnd_toEndOf="@+id/recipe_description"
@@ -120,8 +122,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/small_spacing"
         android:background="?android:attr/listDivider"
-        app:layout_constraintTop_toBottomOf="@id/headerBarrier"
+        app:layout_constraintTop_toBottomOf="@+id/share"
 
-        />
+        tools:layout_editor_absoluteX="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

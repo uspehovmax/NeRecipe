@@ -1,5 +1,6 @@
 package ru.netology.nerecipe.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import ru.netology.nerecipe.R
 import ru.netology.nerecipe.adapter.RecipesAdapter
 import ru.netology.nerecipe.data.Recipe
 import ru.netology.nerecipe.databinding.FavoriteFragmentBinding
@@ -37,7 +39,7 @@ class FavoriteRecipeFragment : Fragment() {
                 if (emptyList) View.VISIBLE else View.GONE
         }
 
-        //организация перехода к фрагменту separateRecipeFragment
+        //организация перехода к фрагменту fullRecipeFragment
         favoriteRecipeViewModel.fullRecipeViewEvent.observe(viewLifecycleOwner) { recipeCardId ->
             val direction =
                 FavoriteRecipeFragmentDirections.actionFavoriteRecipeFragmentToFullRecipeFragment(
@@ -46,7 +48,11 @@ class FavoriteRecipeFragment : Fragment() {
             findNavController().navigate(direction)
         }
 
-        //организация перехода к фрагменту NewOrEditedRecipeFragment
+        binding.fabAdd.setOnClickListener {
+            favoriteRecipeViewModel.onAddButtonClicked()
+        }
+
+        //организация перехода к фрагменту CreateRecipeFragment
         favoriteRecipeViewModel.navigateToRecipeContentScreenEvent.observe(viewLifecycleOwner) { recipe ->
             val direction =
                 FavoriteRecipeFragmentDirections.actionFavoriteRecipeFragmentToCreateRecipeFragment(
@@ -54,6 +60,19 @@ class FavoriteRecipeFragment : Fragment() {
                 )
             findNavController().navigate(direction)
         }
+
+        favoriteRecipeViewModel.shareRecipeContent.observe(viewLifecycleOwner) { recipeContent ->
+            val intent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, recipeContent)
+                type = "text/plain"
+            }
+            val shareIntent =
+                Intent.createChooser(intent, getString(R.string.chooser_share_recipe))
+            startActivity(shareIntent)
+        }
+
+
     }.root
 
     override fun onResume() {

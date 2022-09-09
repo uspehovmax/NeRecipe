@@ -4,11 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
 @Database(
     entities = [RecipeEntity::class],
     version = 1
 )
+//@TypeConverters(Converter::class)
 abstract class AppDb : RoomDatabase() {
     abstract val recipeDao: RecipeDao
 

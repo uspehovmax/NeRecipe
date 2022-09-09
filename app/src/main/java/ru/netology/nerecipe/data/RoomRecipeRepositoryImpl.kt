@@ -28,6 +28,10 @@ class RoomRecipeRepositoryImpl(
        dao.likedByMe(recipeId)
     }
 
+    override fun share(recipeId: Long) {
+        dao.share(recipeId)
+    }
+
     override fun search(recipeName: String) {
         dao.search(recipeName)
     }

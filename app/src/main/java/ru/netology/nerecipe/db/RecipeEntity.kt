@@ -1,9 +1,8 @@
 package ru.netology.nerecipe.db
 
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.databinding.adapters.Converters
+import androidx.room.*
 import ru.netology.nerecipe.data.Region
 
 @Entity(tableName = "recipes")
@@ -17,18 +16,13 @@ class RecipeEntity(
     val author: String,
     @ColumnInfo(name = "region")
     val region: Region,
-//    @ColumnInfo(name = "region")
-//    val type: Type,
-//    @ColumnInfo(name = "region")
-//    val publicationDate: Date,
     @ColumnInfo(name = "description")
     val description: String,
     @ColumnInfo(name = "picture")
     val picture: String,
-    @ColumnInfo(name = "stepsDescription")
-    val stepsDescription: List<String> = emptyList<String>(),
-    @ColumnInfo(name = "pictureSteps")
-    val pictureSteps: List<Int> = emptyList<Int>(),
+    //@field:TypeConverters(Converter::class)
+    @ColumnInfo(name = "stepsDescriptionRecipe")
+    val stepsDescriptionRecipe: String ,//= arrayOf("|"),
     @ColumnInfo(name = "ingredients")
     val ingredients: String,
     @ColumnInfo(name = "likes")

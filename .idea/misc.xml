@@ -3,36 +3,48 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/03/NeRecipe/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.197" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/drawable/check_favorites.xml" value="0.2545" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/drawable/feed_fragment.xml" value="0.2775" />
+        <entry key="..\:/03/NeRecipe/app/src/main/res/drawable/ic_add_24.xml" value="0.197" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/drawable/ic_baseline_lunch_dining_24.xml" value="0.2545" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/drawable/ic_dish.xml" value="0.2545" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/drawable/ic_favorite_24.xml" value="0.1175" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/drawable/ic_filter_24.xml" value="0.2275" />
+        <entry key="..\:/03/NeRecipe/app/src/main/res/drawable/ic_launcher_food_foreground.xml" value="0.197" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/drawable/ic_ok_24.xml" value="0.241" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/drawable/ic_recipe_options.xml" value="0.2275" />
+        <entry key="..\:/03/NeRecipe/app/src/main/res/drawable/ic_share.xml" value="0.254" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/drawable/ic_step.xml" value="0.2725" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/drawable/ic_unfavorite_24.xml" value="0.2545" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/drawable/ic_warning_24.xml" value="0.2995" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/drawable/ic_warning_64.xml" value="0.2995" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/layout/activity_main.xml" value="0.276268115942029" />
-        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/add_edit_text.xml" value="0.2394185549380077" />
+        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/add_edit_text.xml" value="0.264" />
+        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/add_recipe_fragment.xml" value="0.2394185549380077" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/layout/add_step.xml" value="0.2394185549380077" />
+        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/add_step_fragment.xml" value="0.2394185549380077" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/layout/app_activity.xml" value="0.2394185549380077" />
+        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/create_recipe_fragment.xml" value="0.264" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/layout/favorite_fragment.xml" value="0.264" />
-        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/feed_fragment.xml" value="0.264" />
+        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/feed_fragment.xml" value="0.4" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/layout/full_recipe.xml" value="0.25309961522017954" />
-        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/full_recipe_view.xml" value="0.264" />
+        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/full_recipe_view.xml" value="0.4" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/layout/list_steps.xml" value="0.4" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/layout/new_edit_text.xml" value="0.23856348867037194" />
-        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/new_recipe_fragment.xml" value="0.264" />
-        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/recipe.xml" value="0.264" />
-        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/region_choose.xml" value="0.264" />
+        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/new_recipe_fragment.xml" value="0.4" />
+        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/recipe.xml" value="0.4" />
+        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/region_choose.xml" value="0.2394185549380077" />
+        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/region_choose_fragment.xml" value="0.2394185549380077" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/layout/region_filter.xml" value="0.264" />
+        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/region_filter_fragment.xml" value="0.264" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/layout/settings.xml" value="0.264" />
+        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/settings_fragment.xml" value="0.1" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/layout/step.xml" value="0.4" />
+        <entry key="..\:/03/NeRecipe/app/src/main/res/layout/wertt.xml" value="0.2394185549380077" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.23856348867037194" />
         <entry key="..\:/03/NeRecipe/app/src/main/res/menu/options.xml" value="0.23856348867037194" />
+        <entry key="..\:/03/NeRecipe/app/src/main/res/xml/file_paths.xml" value="0.2394185549380077" />
       </map>
     </option>
   </component>

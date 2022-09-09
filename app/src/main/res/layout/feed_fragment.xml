@@ -9,13 +9,13 @@
     android:focusableInTouchMode="true">
     <!--tools:context=".ui.FeedFragment" -->
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recipesRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search"
         tools:listitem="@layout/recipe" />
 
@@ -40,17 +40,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_add_24" />
-
-    <!--com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabFilter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        android:contentDescription="@string/add_recipe"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/fabUndo"
-        app:srcCompat="@drawable/ic_filter_24" /-->
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabUndo"

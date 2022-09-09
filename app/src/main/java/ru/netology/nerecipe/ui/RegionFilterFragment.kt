@@ -8,12 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import ru.netology.nerecipe.adapter.showRegion
-import ru.netology.nerecipe.databinding.RegionFilterBinding //
+import ru.netology.nerecipe.databinding.RegionFilterFragmentBinding //
 import ru.netology.nerecipe.data.Region
 import ru.netology.nerecipe.viewModel.RecipeViewModel
 
 class RegionFilterFragment : Fragment() {
+
+    private val args by navArgs<RegionFilterFragmentArgs>()
 
     private val regionFilterViewModel: RecipeViewModel by viewModels(ownerProducer = ::requireParentFragment)
 
@@ -21,7 +24,7 @@ class RegionFilterFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ) = RegionFilterBinding.inflate(layoutInflater, container, false).also { binding ->
+    ) = RegionFilterFragmentBinding.inflate(layoutInflater, container, false).also { binding ->
 
         with(binding) {
             checkBoxEuropean.text = checkBoxEuropean.context.showRegion(Region.European)
@@ -37,10 +40,9 @@ class RegionFilterFragment : Fragment() {
                 onOkButtonClicked(binding)
             }
         }
-
     }.root
 
-    private fun onOkButtonClicked(binding: RegionFilterBinding) {
+    private fun onOkButtonClicked(binding: RegionFilterFragmentBinding) {
 
         val regionList = arrayListOf<Region>()
         var checkedCount = 7
@@ -100,7 +102,7 @@ class RegionFilterFragment : Fragment() {
         } else {
             regionFilterViewModel.showRecipesByRegion(regionList)
             val resultBundle = Bundle(1)
-            resultBundle.putParcelableArrayList(CHECKBOX_KEY, regionList) // ?????
+            resultBundle.putParcelableArrayList(CHECKBOX_KEY, regionList)
             setFragmentResult(CHECKBOX_KEY, resultBundle)
             findNavController().popBackStack()
         }

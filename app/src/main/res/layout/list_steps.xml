@@ -8,7 +8,7 @@
     android:padding="@dimen/common_spacing">
 
     <ImageView
-        android:id="@+id/step"
+        android:id="@+id/step_picture"
         android:layout_width="@dimen/recipe_avatar_size"
         android:layout_height="@dimen/recipe_avatar_size"
         android:contentDescription="@string/step_picture"
@@ -20,17 +20,17 @@
         tools:srcCompat="@drawable/ic_step"
         tools:text="add picture" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/recipe_description"
+    <EditText
+        android:id="@+id/step_description"
         android:layout_width="@dimen/step_width_size"
         android:layout_height="@dimen/recipe_avatar_size"
         android:layout_marginStart="@dimen/medium_spacing"
         android:ellipsize="end"
-        android:singleLine="true"
+        android:singleLine="false"
         android:textSize="16sp"
         android:isScrollContainer="true"
         app:layout_constraintBottom_toTopOf="@+id/headerBarrier"
-        app:layout_constraintStart_toEndOf="@+id/step"
+        app:layout_constraintStart_toEndOf="@+id/step_picture"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="@string/step_description" />
 
@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="step, recipe_description"
+        app:constraint_referenced_ids="step_picture, step_description"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="144dp" />
 
@@ -48,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/small_spacing"
         android:background="?android:attr/listDivider"
-        app:layout_constraintTop_toBottomOf="@id/recipe_description"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/step_description"
+        tools:layout_editor_absoluteX="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,7 +25,6 @@ class RecipesAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position))
-
     }
 
     class ViewHolder(
@@ -61,22 +60,26 @@ class RecipesAdapter(
         init {
             binding.authorName.setOnClickListener { listener.onRecipeCardClicked(recipe) } //
             binding.title.setOnClickListener { listener.onRecipeCardClicked(recipe) } //
-            binding.avatar.setOnClickListener { listener.onRecipeCardClicked(recipe) } //
+            binding.dishPicture.setOnClickListener { listener.onRecipeCardClicked(recipe) } //
+            binding.recipeDescription.setOnClickListener { listener.onRecipeCardClicked(recipe) } //
         }
 
         init {
             itemView.setOnClickListener { listener.onRecipeItemClicked(recipe) }
             binding.favorite.setOnClickListener { listener.onLikesButtonClicked(recipe) }
+            binding.share.setOnClickListener { listener.onShareButtonClicked(recipe) }
         }
 
         fun bind(recipe: Recipe) {
-            this.recipe = recipe // кот из lateinit
+            this.recipe = recipe // из lateinit
 
             with(binding) {
                 title.text = recipe.title
                 authorName.text = recipe.author
                 region.text = region.context.showRegion(recipe.region)
                 favorite.isChecked = recipe.likedByMe
+                favorite.text = recipe.likes.toString()
+                share.text = recipe.shareCount.toString()
             }
         }
     }
@@ -84,7 +87,6 @@ class RecipesAdapter(
     private object DiffCallback : DiffUtil.ItemCallback<Recipe>() {
         override fun areItemsTheSame(oldItem: Recipe, newItem: Recipe) =
             oldItem.id == newItem.id
-
 
         override fun areContentsTheSame(oldItem: Recipe, newItem: Recipe) =
             oldItem == newItem

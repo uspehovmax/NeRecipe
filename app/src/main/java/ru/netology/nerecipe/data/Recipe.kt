@@ -10,16 +10,16 @@ import ru.netology.nerecipe.R
 data class Recipe(
     val id: Long,
     val author: String = "Unknown",
-    val region: Region = Region.European, // enum категория / кухня
-    val title: String,
+    var region: Region = Region.American, // enum категория / кухня
+    val title: String = "",
     val description: String = "",
-    val picture: String = "",
-    var stepsDescription: List<String> = emptyList<String>(),
-    var pictureSteps: List<Int> = emptyList<Int>(),
+    var picture: String = "",
     var ingredients: String = "",
-    val likes: Int = 0,
+    val likes: Int = 50,
     val likedByMe: Boolean = false,
     val shareCount: Int = 0,
+    val stepsDescriptionRecipe: String = ""
+
 ): Parcelable
 
 @Serializable
@@ -33,18 +33,3 @@ enum class Region: Parcelable {
     Russian,
     Mediterranean
 }
-
-/*
-enum class Type {
-    Bakery,
-    Breakfast,
-    Desserts,
-    Drinks,
-    Grilled,
-    MainDish,
-    Porridge,
-    Salad,
-    SideDish,
-    Soup
-}
-*/

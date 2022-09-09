@@ -1,18 +1,17 @@
 package ru.netology.nerecipe.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import ru.netology.nerecipe.R
 import ru.netology.nerecipe.adapter.RecipesAdapter
+import ru.netology.nerecipe.adapter.showRegion
 import ru.netology.nerecipe.databinding.FullRecipeViewBinding
-import ru.netology.nerecipe.data.Recipe
 import ru.netology.nerecipe.viewModel.RecipeViewModel
 
 class FullRecipeFragment : Fragment() {
@@ -20,6 +19,16 @@ class FullRecipeFragment : Fragment() {
     private val args by navArgs<FullRecipeFragmentArgs>()
 
     private val fullRecipeViewModel: RecipeViewModel by viewModels(ownerProducer = ::requireParentFragment)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        //переход к фрагменту CreateRecipeFragment
+        fullRecipeViewModel.navigateToRecipeContentScreenEvent.observe(this) { recipe ->
+            //val direction = FeedFragmentDirections.actionFeedFragmentToNewRecipeFragment(recipe)
+            val direction = FullRecipeFragmentDirections.actionFullRecipeFragmentToCreateRecipeFragment (recipe)
+            findNavController().navigate(direction)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,46 +43,28 @@ class FullRecipeFragment : Fragment() {
                 return@observe
             }
             viewHolder.bind(fullRecipe)
-            // fullRecipeView
             binding.fullRecipeView.title.text = fullRecipe.title
             binding.fullRecipeView.authorName.text = fullRecipe.author
             binding.fullRecipeView.recipeDescription.text = fullRecipe.description
-            binding.fullRecipeView.region.text = fullRecipe.region.toString()
+            binding.fullRecipeView.region.text = context?.showRegion(fullRecipe.region)
             binding.fullRecipeView.favorite.text = fullRecipe.likes.toString()
             binding.fullRecipeView.share.text = fullRecipe.shareCount.toString()
 
-            // ingredients
             binding.ingredients.text = fullRecipe.ingredients
 
-            // listViewSteps
-            binding.listViewSteps.adapter
-
-            //binding.recipeDescription.text = fullRecipe.description
-            //binding.recipeImage.setImageResource(R.drawable.)
-            //binding.recipeImage.visibility =
-            //    if (fullRecipe.picture.isBlank()) View.GONE else View.VISIBLE
+            binding.listViewSteps.text = fullRecipe.stepsDescriptionRecipe
 
         }
 
-        //организация перехода к фрагменту NewOrEditedRecipeFragment
-        fullRecipeViewModel.navigateToRecipeContentScreenEvent.observe(viewLifecycleOwner) { recipe ->
-            val direction =
-                FullRecipeFragmentDirections.actionFullRecipeFragmentToCreateRecipeFragment(
-                    recipe
-                )
-            findNavController().navigate(direction)
-        }
-
-        // показываем новый экран в нашем приложении
-        // данная ф-ция будет вызвана при завершении NewOrEditedRecipeFragment
-        setFragmentResultListener(
-            requestKey = CreateRecipeFragment.REQUEST_KEY
-        ) { requestKey, bundle ->
-            if (requestKey != CreateRecipeFragment.REQUEST_KEY) return@setFragmentResultListener
-            val newRecipe = bundle.getParcelable<Recipe>(
-                CreateRecipeFragment.RESULT_KEY
-            ) ?: return@setFragmentResultListener
-            fullRecipeViewModel.onSaveButtonClicked(newRecipe)
+        fullRecipeViewModel.shareRecipeContent.observe(viewLifecycleOwner) { recipeContent ->
+            val intent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, recipeContent)
+                type = "text/plain"
+            }
+            val shareIntent =
+                Intent.createChooser(intent, getString(R.string.chooser_share_recipe))
+            startActivity(shareIntent)
         }
 
     }.root

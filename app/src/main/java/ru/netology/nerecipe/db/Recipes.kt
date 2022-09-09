@@ -8,17 +8,15 @@ fun RecipeEntity.toModel(): Recipe {
         id = id,
         author = author,
         region = region,
-        //type = type,
-        //publicationDate = publicationDate
         title = title,
         description = description,
-        pictureId = pictureId,
-        stepsDescription = stepsDescription,
-        pictureSteps = pictureSteps,
+        picture = picture,
         ingredients = ingredients,
         likes = likes,
         likedByMe = likedByMe,
-        shareCount = shareCount
+        shareCount = shareCount,
+        stepsDescriptionRecipe = stepsDescriptionRecipe,
+
     )
     return recipe
 }
@@ -27,15 +25,12 @@ fun Recipe.toEntity() = RecipeEntity(
     id = id,
     author = author,
     region = region,
-    //type = type,
-    //publicationDate = publicationDate
     title = title,
     description = description,
-    pictureId = pictureId,
-    stepsDescription = stepsDescription,
-    pictureSteps = pictureSteps,
+    picture = picture,
     ingredients = ingredients,
     likes = likes,
     likedByMe = likedByMe,
-    shareCount = shareCount
+    shareCount = shareCount,
+    stepsDescriptionRecipe = stepsDescriptionRecipe
 )

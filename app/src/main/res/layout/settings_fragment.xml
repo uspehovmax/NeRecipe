@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/settingsFragment"
+    >
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrierTop"
@@ -13,46 +15,6 @@
         app:barrierDirection="top">
 
     </androidx.constraintlayout.widget.Barrier>
-
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="16dp">
-
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bottomAppBar"
-            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginTop="@dimen/ok_margin" />
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/ok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        android:contentDescription="@string/recipe_save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_ok_24" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabUndo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        android:layout_marginEnd="148dp"
-        android:contentDescription="@string/cancel_filters"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_undo_24" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrierLeft"
@@ -67,15 +29,14 @@
         android:layout_height="wrap_content"
         android:fontFamily="casual"
         android:gravity="center"
+        android:text="@string/settings"
         android:textColor="#F44336"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:text="@string/settings"
         app:layout_constraintBottom_toTopOf="@id/barrierTop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@id/darkTheme"
@@ -102,16 +63,47 @@
         android:id="@+id/switchDark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/common_spacing"
+        android:clickable="false"
         android:text="@string/themeSwitch"
         app:layout_constraintBottom_toBottomOf="@+id/darkTheme"
-        tools:layout_editor_absoluteX="144dp" />
+        app:layout_constraintStart_toEndOf="@+id/darkTheme" />
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switchLanguage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/common_spacing"
+        android:clickable="false"
         android:text="@string/languageSwitch"
         app:layout_constraintBottom_toBottomOf="@+id/enRu"
-        tools:layout_editor_absoluteX="144dp" />
+        app:layout_constraintStart_toEndOf="@+id/enRu" />
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp">
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/ok_margin" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/recipe_save"
+            app:layout_anchor="@id/bottomAppBar"
+            app:srcCompat="@drawable/ic_ok_24" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/createRecipeFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.CreateRecipeFragment"
+    >
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/common_spacing"
+    >
+
+        <ImageView
+            android:id="@+id/dish_picture"
+            android:layout_width="@dimen/recipe_avatar_size"
+            android:layout_height="@dimen/recipe_avatar_size"
+            android:layout_marginBottom="@dimen/medium_spacing"
+            android:clickable="true"
+            android:contentDescription="@string/avatar_description"
+            android:focusable="true"
+            android:src="@drawable/ic_dish"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/ic_dish"
+            tools:text="Add" />
+
+    <EditText
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/common_spacing_80"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:clickable="true"
+        android:ellipsize="end"
+        android:focusable="true"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:singleLine="false"
+        android:textColor="#F44336"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:hint="@string/write_title_here"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dish_picture"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="@string/recipe_title" />
+
+    <EditText
+        android:id="@+id/recipe_description"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/common_spacing_80"
+        android:clickable="true"
+        android:ellipsize="end"
+        android:focusable="true"
+        android:hint="@string/write_description_here"
+        android:singleLine="false"
+        android:layout_marginTop="@dimen/medium_spacing"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/title"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="@string/recipe_description" />
+
+    <EditText
+        android:id="@+id/authorName"
+        android:layout_width="@dimen/recipe_avatar_size"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_spacing"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:minHeight="48dp"
+        android:hint="@string/author_name_hint"
+        app:layout_constraintEnd_toEndOf="@+id/dish_picture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dish_picture" />
+
+    <Button
+        android:id="@+id/region"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_spacing_48"
+        android:layout_marginTop="@dimen/medium_spacing"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="@string/chooseMessage"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:theme="@style/ThemeOverlay.Material3.DynamicColors.Dark"
+        app:layout_constraintEnd_toEndOf="@+id/recipe_description"
+        app:layout_constraintStart_toStartOf="@+id/authorName"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRegion"
+        tools:text="@string/chooseMessage" />
+
+    <TextView
+        android:id="@+id/textViewRegion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium_spacing"
+        android:ellipsize="end"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:hint="Choose region"
+        android:singleLine="true"
+        android:textSize="18sp"
+        android:textColor="#F44336"
+        app:layout_constraintEnd_toEndOf="@+id/recipe_description"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/authorName"
+        app:layout_constraintTop_toBottomOf="@+id/authorName" />
+
+    <EditText
+        android:id="@+id/ingredients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium_spacing"
+        android:clickable="true"
+        android:ellipsize="end"
+        android:focusable="true"
+        android:fontFamily="casual"
+        android:gravity="left"
+        android:hint="@string/ingredients"
+        android:minHeight="48dp"
+        android:singleLine="false"
+        android:textColor="#F44336"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/addStepButton"
+        app:layout_constraintStart_toStartOf="@+id/region"
+        app:layout_constraintTop_toBottomOf="@+id/region" />
+
+    <Button
+        android:id="@+id/addStepButton"
+        style="Widget.AppTheme.Button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/medium_spacing"
+        android:background="@color/burger"
+        android:text="@string/addStepButton"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:theme="@style/ThemeOverlay.Material3.DynamicColors.Dark"
+        app:layout_constraintStart_toStartOf="@+id/ingredients"
+        app:layout_constraintTop_toBottomOf="@+id/ingredients"
+        tools:text="Add New Step" />
+
+        <TextView
+            android:id="@+id/listViewSteps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:isScrollContainer="true"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/container"
+            app:layout_constraintStart_toStartOf="@+id/addStepButton"
+            app:layout_constraintTop_toBottomOf="@+id/addStepButton"
+            android:textSize="16sp"/>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp">
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/ok_margin" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/recipe_save"
+            app:layout_anchor="@id/bottomAppBar"
+            app:srcCompat="@drawable/ic_ok_24" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

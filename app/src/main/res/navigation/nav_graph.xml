@@ -22,8 +22,12 @@
             android:id="@+id/action_feedFragment_to_favoriteRecipeFragment"
             app:destination="@id/favoriteRecipeFragment" />
         <action
-            android:id="@+id/action_feedFragment_to_categoryFilterFragment"
+            android:id="@+id/action_feedFragment_to_regionFilterFragment"
             app:destination="@id/regionFilterFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+
     </fragment>
 
     <fragment
@@ -42,11 +46,14 @@
     <fragment
         android:id="@+id/createRecipeFragment"
         android:name="ru.netology.nerecipe.ui.CreateRecipeFragment"
-        tools:layout="@layout/new_recipe_fragment">
+        tools:layout="@layout/create_recipe_fragment">
         <argument
             android:name="currentRecipe"
             app:argType="ru.netology.nerecipe.data.Recipe"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_createRecipeFragment_to_addStepFragment"
+            app:destination="@id/addStepFragment" />
         <action
             android:id="@+id/action_createRecipeFragment_to_regionChooseFragment"
             app:destination="@id/regionChooseFragment" />
@@ -61,11 +68,6 @@
             android:name="ShowAppBar"
             android:defaultValue="true" />
         <action
-            android:id="@+id/action_favoriteRecipeFragment_to_feedFragment"
-            app:destination="@id/feedFragment" />
-
-
-        <action
             android:id="@+id/action_favoriteRecipeFragment_to_fullRecipeFragment"
             app:destination="@id/fullRecipeFragment" />
         <action
@@ -75,32 +77,46 @@
     </fragment>
 
     <fragment
-        android:id="@+id/regionFilterFragment"
-        android:name="ru.netology.nerecipe.ui.RegionFilterFragment"
-        android:label="RegionFilterFragment"
-        tools:layout="@layout/region_filter">
+        android:id="@+id/regionChooseFragment"
+        android:name="ru.netology.nerecipe.ui.RegionChooseFragment"
+        android:label="RegionChooseFragment"
+        tools:layout="@layout/region_choose_fragment">
+        <argument
+            android:name="currentRegion"
+            app:argType="ru.netology.nerecipe.data.Region"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="ru.netology.nerecipe.ui.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/settings_fragment">
         <argument
             android:name="ShowAppBar"
             android:defaultValue="true" />
-        <action
-            android:id="@+id/action_regionFilterFragment_to_feedFragment"
-            app:destination="@id/feedFragment" />
 
     </fragment>
 
     <fragment
-        android:id="@+id/regionChooseFragment"
-        android:name="ru.netology.nerecipe.ui.RegionChooseFragment"
-        android:label="RegionChooseFragment"
-        tools:layout="@layout/region_choose">
+        android:id="@+id/regionFilterFragment"
+        android:name="ru.netology.nerecipe.ui.RegionFilterFragment"
+        android:label="RegionFilterFragment"
+        tools:layout="@layout/region_filter_fragment">
         <argument
-            android:name="currentRecipe"
-            app:argType="ru.netology.nerecipe.data.Recipe"
-            app:nullable="true" />
-        <action
-            android:id="@+id/action_regionChooseFragment_to_createRecipeFragment"
-            app:destination="@id/createRecipeFragment" />
+            android:name="ShowAppBar"
+            android:defaultValue="true" />
     </fragment>
 
+    <fragment
+        android:id="@+id/addStepFragment"
+        android:name="ru.netology.nerecipe.ui.AddStepFragment"
+        android:label="AddStepFragment"
+        tools:layout="@layout/add_step_fragment">
+        <argument
+            android:name="currentSteps"
+            app:argType="string"
+            app:nullable="true"
+            />
+    </fragment>
 
 </navigation>
