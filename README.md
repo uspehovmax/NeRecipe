@@ -74,6 +74,4 @@
 
 > -- <cite>Maksim Uspekhov</cite>
 
-> -- 
-
 ----
